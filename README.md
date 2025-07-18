@@ -15,7 +15,7 @@ Welcome to my personal portfolio website, designed to highlight my journey as a 
 ##  Setup & Usage
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/your-portfolio.git
+   git clone https://github.com/nivwya/Portfolio-Website.git
    cd your-portfolio
    ```
 2. Open `index.html` in your browser to view locally.
