@@ -2,7 +2,7 @@
 
 Welcome to my personal portfolio website, designed to highlight my journey as a computer science student and developer. You can check it out [here!](#)
 
-<img width="1160" alt="Screenshot 2024-06-15 at 1 20 54 AM" src="https://github.com/Erik-Cupsa/PortfolioWebsite/assets/86483911/3158d670-8cea-428a-8308-32c6b50f4de0">
+<img width="1160" alt="Screenshot 2024-06-15 at 1 20 54 AM" src="https://github.com/nivwya/Portfolio-Website/blob/main/assets/Screenshot%202025-07-18%20203206.png">
 
 ## Features
 - Animated cyberpunk theme with video and glitch effects
