@@ -12,22 +12,6 @@ Welcome to my personal portfolio website, designed to highlight my journey as a 
 - Modern, responsive layout
 - Contact form (easy to integrate with Formspree or EmailJS)
 
-##  Setup & Usage
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/nivwya/Portfolio-Website.git
-   cd your-portfolio
-   ```
-2. Open `index.html` in your browser to view locally.
-3. To deploy, upload the files to Netlify, Vercel, or GitHub Pages.
-4. (Optional) Set up your contact form with [Formspree](https://formspree.io/) or [EmailJS](https://www.emailjs.com/).
-
-## File Structure
-- `index.html` — Main HTML file
-- `styles.css` — All custom styles
-- `script.js` — JavaScript for interactivity
-- `project*.png` — Project images
-- `header.gif`, `background.mp4` — Visual assets
 
 ##  Author
 **Niveditha Reddy Anumandla**  
