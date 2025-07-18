@@ -19,6 +19,3 @@ Welcome to my personal portfolio website, designed to highlight my journey as a 
 
 ##  License
 This project is open source and available under the [MIT License](LICENSE). 
-
----
-Thank you for checking out my Coding Portfolio! If you have any questions or feedback, feel free to reach out.
