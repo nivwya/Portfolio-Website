@@ -17,6 +17,171 @@
     scroll-behavior: smooth;
 }
 
+/* Enhanced animation classes */
+.fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.slide-up {
+    animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.stagger-fade {
+    animation: staggerFade 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes staggerFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Loading Screen Styles */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--darker);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+}
+
+#loading-screen.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-container {
+    text-align: center;
+    color: var(--text);
+}
+
+.loading-logo {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--primary);
+    text-shadow: 0 0 10px var(--primary);
+    margin-bottom: 2rem;
+    animation: logoPulse 2s ease-in-out infinite;
+}
+
+.loading-text {
+    font-size: 1.2rem;
+    color: var(--secondary);
+    letter-spacing: 0.3em;
+    margin-bottom: 2rem;
+    animation: textFlicker 1.5s ease-in-out infinite;
+}
+
+.loading-bar {
+    width: 300px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.loading-progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 2px;
+    width: 0%;
+    animation: progressFill 2s ease-in-out forwards;
+    position: relative;
+}
+
+.loading-progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+    0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 10px var(--primary);
+    }
+    50% {
+        transform: scale(1.05);
+        text-shadow: 0 0 20px var(--primary), 0 0 30px var(--primary);
+    }
+}
+
+@keyframes textFlicker {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes progressFill {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Smooth transitions for all interactive elements */
+.project-card,
+.skill-category-card,
+.cyber-button,
+.social-link,
+.nav-links a,
+.logo {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 body {
     font-family: 'Segoe UI', 'Roboto', sans-serif;
     background-color: var(--darker);
@@ -169,6 +334,16 @@ nav.scrolled {
     position: relative;
     z-index: 2;
     max-width: 10000px;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: heroFadeIn 1.2s ease-out 0.5s forwards;
+}
+
+@keyframes heroFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .hero-content h1,
@@ -907,6 +1082,16 @@ textarea:valid + label {
     background: rgba(255, 0, 60, 0.1);
     border: 1px solid var(--primary);
     position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideInFromBottom 0.6s ease-out forwards;
+}
+
+@keyframes slideInFromBottom {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .social-link:hover {
