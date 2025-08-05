@@ -326,7 +326,7 @@ nav.scrolled {
     left: 0;
     width: 100%;
     height: 100%;
-    #background: rgba(0,0,0,0.5); /* Optional: darken video for text readability */
+    background: rgba(0,0,0,0.5); /* Optional: darken video for text readability */
     z-index: 1;
 }
 
@@ -1377,3 +1377,821 @@ textarea:valid + label {
         gap: 1rem;
     }
 } 
+
+/* Vertical Timeline for Experience Section */
+.timeline-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    margin: 2rem 0 2rem 2rem;
+    border-left: 3px solid var(--secondary);
+    padding-left: 2rem;
+}
+.timeline-year {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin: 1.5rem 0 0.5rem 0;
+    position: relative;
+    left: -2.5rem;
+}
+.timeline-item.expandable {
+    position: relative;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    padding-left: 1.5rem;
+    transition: background 0.2s;
+}
+.timeline-item.expandable:hover {
+    background: rgba(0,0,0,0.05);
+}
+.timeline-dot {
+    position: absolute;
+    left: -2.1rem;
+    top: 1.1rem;
+    width: 1.1rem;
+    height: 1.1rem;
+    background: var(--secondary);
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    z-index: 1;
+}
+.timeline-date {
+    font-size: 1rem;
+    color: var(--secondary);
+    margin-bottom: 0.2rem;
+}
+.timeline-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+}
+.timeline-location {
+    font-size: 0.95em;
+    color: var(--primary);
+    margin-left: 0.5em;
+}
+.timeline-details {
+    display: none;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding-left: 0.5rem;
+    color: var(--text);
+    font-size: 0.98rem;
+}
+.timeline-item.expanded .timeline-details {
+    display: block;
+    animation: fadeIn 0.4s;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+} 
+
+/* Horizontal Timeline for Experience Section */
+.timeline-horizontal {
+    width: 100%;
+    margin: 2rem 0 3rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.timeline-bar {
+    width: 80%;
+    height: 4px;
+    background: #222;
+    position: relative;
+    margin-bottom: 2.5rem;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.timeline-progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 2px;
+    z-index: 1;
+}
+.timeline-year-label {
+    position: absolute;
+    top: -2.2rem;
+    font-size: 1.1rem;
+    color: var(--primary);
+    font-weight: bold;
+    z-index: 2;
+}
+.timeline-year-label.left {
+    left: 0;
+}
+.timeline-year-label.right {
+    right: 0;
+}
+.experience-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.experience-card {
+    background: #181818;
+    border: 1.5px solid #333;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.15);
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    min-width: 320px;
+    max-width: 350px;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: border 0.2s, box-shadow 0.2s, background 0.2s;
+    opacity: 0.85;
+}
+.experience-card.active, .experience-card:hover {
+    border: 2px solid #333;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.13);
+    background: #222;
+    opacity: 1;
+}
+.exp-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+.exp-company {
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: var(--secondary);
+}
+.exp-badge {
+    background: var(--primary);
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 0.2em 0.7em;
+    margin-left: 0.7em;
+    letter-spacing: 1px;
+}
+.exp-role {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+.exp-meta {
+    font-size: 0.98rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.7rem;
+    display: flex;
+    gap: 1.2em;
+    flex-wrap: wrap;
+}
+.exp-desc {
+    font-size: 1.01rem;
+    margin-bottom: 0.7rem;
+    color: var(--text);
+}
+.exp-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin-bottom: 0.7rem;
+}
+.exp-skills span {
+    background: #232323;
+    color: var(--secondary);
+    border-radius: 6px;
+    padding: 0.2em 0.7em;
+    font-size: 0.95em;
+    font-weight: 500;
+}
+.exp-cert {
+    margin-top: 0.5rem;
+}
+.exp-cert-link {
+    display: inline-block;
+    background: var(--secondary);
+    color: #fff;
+    border-radius: 6px;
+    padding: 0.25em 0.9em;
+    font-size: 0.98em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
+.exp-cert-link:hover {
+    background: var(--primary);
+    color: #fff;
+}
+.experience-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 1.15rem;
+}
+@media (max-width: 900px) {
+    .experience-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    .timeline-bar {
+        width: 95%;
+    }
+} 
+
+/* Experience Details Panel Styles - WIDER, more horizontal, centered */
+/* Responsive two-column layout for experience details */
+.exp-details-panel {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    animation: fadeIn 0.5s;
+}
+.exp-details-card {
+    background: #181818;
+    border: 2px solid var(--secondary);
+    border-radius: 18px;
+    box-shadow: 0 4px 24px 0 var(--secondary), 0 2px 16px 0 rgba(0,0,0,0.18);
+    padding: 2rem 3.5rem 2rem 3.5rem;
+    max-width: 1100px;
+    min-width: 700px;
+    width: 70vw;
+    color: var(--text);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    opacity: 0.97;
+    align-items: flex-start;
+}
+.exp-details-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+.exp-details-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+.exp-details-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-bottom: 0.5rem;
+}
+.exp-details-role {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--secondary);
+}
+.exp-details-company {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+.exp-details-meta {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    display: flex;
+    gap: 1.2em;
+    flex-wrap: wrap;
+    margin-top: 0.2rem;
+}
+.exp-details-section h4 {
+    color: var(--secondary);
+    font-size: 1.08rem;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+.exp-details-achievements {
+    margin: 0 0 0.5rem 1.2rem;
+    padding: 0;
+    list-style: disc;
+    color: var(--text);
+    font-size: 1.01rem;
+}
+.exp-details-achievements li {
+    margin-bottom: 0.3em;
+}
+.exp-details-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+.exp-details-tech span {
+    background: #232323;
+    color: var(--secondary);
+    border-radius: 6px;
+    padding: 0.2em 0.7em;
+    font-size: 0.97em;
+    font-weight: 500;
+}
+.exp-details-quote {
+    font-style: italic;
+    color: var(--primary);
+    background: #232323;
+    border-left: 4px solid var(--secondary);
+    padding: 0.7em 1em;
+    border-radius: 8px;
+    margin-top: 0.5em;
+    font-size: 1.01em;
+}
+.exp-details-cert {
+    margin-top: 0.7em;
+}
+.exp-details-cert .exp-cert-link {
+    background: var(--secondary);
+    color: #fff;
+    border-radius: 6px;
+    padding: 0.25em 0.9em;
+    font-size: 1em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
+.exp-details-cert .exp-cert-link:hover {
+    background: var(--primary);
+    color: #fff;
+}
+@media (max-width: 1200px) {
+    .exp-details-card {
+        max-width: 98vw;
+        min-width: 0;
+        width: 98vw;
+        padding: 1.2rem 0.7rem 1.2rem 0.7rem;
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+} 
+
+/* Unified box for experience details with two columns */
+.exp-details-box {
+    background: #232323;
+    border: 2px solid var(--primary);
+    border-radius: 14px;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.12);
+    padding: 2.2rem 2.5rem 2rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: flex-start;
+    min-width: 400px;
+    max-width: 1100px;
+    width: 70vw;
+    margin: 0 auto;
+}
+.exp-details-left, .exp-details-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+@media (max-width: 900px) {
+    .exp-details-box {
+        grid-template-columns: 1fr;
+        width: 98vw;
+        max-width: 98vw;
+        padding: 1.2rem 0.7rem 1.2rem 0.7rem;
+        gap: 1.2rem;
+    }
+} 
+
+/* Truncate experience description to 3 lines with ellipsis */
+.exp-desc-truncate {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 4.5em;
+    margin-bottom: 0.7em;
+    color: var(--text-secondary);
+    font-size: 1.01em;
+}
+/* Truncate skills to one line with ellipsis and show +view more if needed */
+.exp-skills-truncate {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    gap: 0.5em;
+    margin-bottom: 0.7em;
+    font-size: 0.97em;
+    align-items: center;
+}
+.exp-skills-truncate .exp-skill-more {
+    color: var(--secondary);
+    font-weight: 600;
+    margin-left: 0.5em;
+    cursor: pointer;
+    white-space: nowrap;
+}
+/* More space between company, role, date, location */
+.exp-header {
+    margin-bottom: 0.5em;
+}
+.exp-role {
+    margin-bottom: 0.5em;
+    margin-top: 0.2em;
+}
+.exp-meta {
+    margin-bottom: 0.5em;
+} 
+
+/* Subtle box for tech skills inside experience details */
+.exp-details-techbox {
+    background: #262626;
+    border: 1.5px solid var(--secondary);
+    border-radius: 8px;
+    padding: 1rem 1.2rem 0.7rem 1.2rem;
+    margin-top: 0.2rem;
+    margin-bottom: 1.1rem;
+    box-shadow: 0 1px 6px 0 rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.exp-details-techbox h4 {
+    margin: 0 0 0.5em 0;
+    color: var(--secondary);
+    font-size: 1.08rem;
+    font-weight: 600;
+}
+.exp-details-techbox .exp-details-tech {
+    margin: 0;
+    gap: 0.5em;
+    flex-wrap: wrap;
+} 
+
+/* Technologies Used heading above tech box */
+.exp-tech-heading {
+    color: var(--secondary);
+    font-weight: 700;
+    font-size: 1.13rem;
+    margin-bottom: 0.5em;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    letter-spacing: 0.5px;
+} 
+
+/* Reduce space below experience dropdown */
+.exp-details-panel {
+    margin-bottom: 0.5rem !important;
+}
+.timeline-horizontal {
+    margin-bottom: 0.5rem !important;
+} 
+
+/* Adjust experience card size and spacing */
+.experience-card {
+    min-width: 340px;
+    max-width: 420px;
+    width: 370px;
+    padding: 1.1rem 1.1rem 0.9rem 1.1rem;
+    margin-bottom: 0.7rem;
+    border-radius: 14px;
+    /* keep other existing styles */
+}
+.exp-header {
+    margin-bottom: 0.15em;
+}
+.exp-role {
+    margin-bottom: 0.15em;
+    margin-top: 0.1em;
+}
+.exp-meta {
+    margin-bottom: 0.15em;
+}
+.exp-desc-truncate {
+    margin-bottom: 0.3em;
+}
+.exp-skills-truncate {
+    margin-bottom: 0.3em;
+}
+.exp-company, .exp-badge, .exp-role, .exp-date, .exp-location, .exp-desc-truncate, .exp-skills-truncate {
+    line-height: 1.1;
+} 
+
+/* More visible space between sentences in experience cards */
+.experience-card .exp-header,
+.experience-card .exp-role,
+.experience-card .exp-meta,
+.experience-card .exp-desc-truncate,
+.experience-card .exp-skills-truncate {
+    margin-bottom: 0.32em !important;
+    line-height: 2.00 !important;
+} 
+
+/* Space between company, role, date, location in experience card */
+.experience-card .exp-company,
+.experience-card .exp-role,
+.experience-card .exp-date,
+.experience-card .exp-location {
+    display: block;
+    margin-bottom: 0.32em !important;
+    line-height: 1.25 !important;
+}
+/* Remove extra space from description and skills paragraph */
+.experience-card .exp-desc-truncate,
+.experience-card .exp-skills-truncate {
+    margin-bottom: 0.08em !important;
+    line-height: 1.15 !important;
+} 
+
+/* Add space between description and skills in experience card */
+.experience-card .exp-desc-truncate {
+    margin-bottom: 0.6em !important;
+}
+.experience-card .exp-skills-truncate {
+    margin-top: 0.35em !important;
+} 
+
+/* Achievements Section Styles - Updated for grey background and max 3 per row */
+.achievements {
+    padding: 6rem 3rem;
+    
+}
+.achievements-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+@media (min-width: 900px) {
+    .achievements-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+.achievement-card {
+    background: rgba(0, 0, 0, 0.10);
+    border: 1.5px solid var(--secondary);
+    border-radius: 18px;
+    box-shadow: 0 2px 16px 0 rgba(0,255,249,0.08);
+    padding: 2rem 1.5rem;
+    min-width: 0;
+    max-width: 350px;
+    width: 100%;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: box-shadow 0.2s, border 0.2s, background 0.2s;
+}
+.achievement-card h3 {
+    color: var(--secondary);
+    margin-bottom: 0.7rem;
+    font-size: 1.2rem;
+}
+.achievement-card p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+.achievement-card .cert-date {
+    color: var(--accent);
+    font-size: 0.95rem;
+    margin-top: auto;
+}
+.achievement-card:hover {
+    border: 1.5px solid var(--primary);
+    box-shadow: 0 4px 24px 0 var(--primary), 0 2px 16px 0 rgba(0,0,0,0.18);
+    background: rgba(0, 255, 249, 0.13);
+}
+@media (max-width: 900px) {
+    .achievements-container {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+    .achievement-card {
+        max-width: 100%;
+    }
+} 
+
+/* Achievement meta row: date and button on same line */
+.achievement-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: auto;
+    gap: 1rem;
+}
+.achievement-meta .cert-date {
+    margin: 0;
+}
+.achievement-meta .cyber-button {
+    margin: 0;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.95rem;
+} 
+
+/* About Me: Education & Tech Skills Two-Column Layout */
+.about-edu-skills {
+    display: flex;
+    gap: 2.2rem;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 2.5rem auto 0 auto;
+    max-width: 900px;
+}
+.about-education-box, .about-techskills-box {
+    background: #111111ee;
+    border-radius: 18px;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.18);
+    padding: 1.2rem 1.2rem 1rem 1.2rem;
+    min-width: 320px;
+    max-width: 420px;
+    font-size: 0.98rem;
+    margin-bottom: 1.2rem;
+    flex: 1 1 340px;
+}
+@media (max-width: 950px) {
+    .about-edu-skills {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+        max-width: 98vw;
+    }
+    .about-education-box, .about-techskills-box {
+        max-width: 98vw;
+        min-width: 0;
+        flex: 1 1 100%;
+    }
+}
+.about-education-box h3, .about-techskills-box h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.7rem;
+}
+.edu-degree {
+    font-size: 1.05rem;
+    margin-bottom: 0.3rem;
+}
+.edu-degree span {
+    color: #ff6a1a;
+}
+.edu-college {
+    font-size: 0.98rem;
+    margin-bottom: 0.3rem;
+}
+.edu-cgpa {
+    font-size: 0.95rem;
+    margin-bottom: 0.7rem;
+}
+.edu-dates {
+    color: #fff;
+    font-size: 1rem;
+    margin-left: 1.5rem;
+}
+.edu-courses-title {
+    font-size: 1.05rem;
+    margin-bottom: 0.3rem;
+    margin-top: 0.7rem;
+}
+.edu-courses-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 0.4rem;
+}
+.edu-course {
+    background: #2a140a;
+    color: #ff6a1a;
+    border-radius: 6px;
+    padding: 0.25rem 0.7rem;
+    font-size: 0.93rem;
+    margin-bottom: 0.2rem;
+    display: inline-block;
+}
+.edu-course.more {
+    background: #444;
+    color: #ccc;
+}
+.about-techskills-box {
+    margin-left: 0;
+}
+.techskills-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+.techskills-title {
+    font-size: 1.05rem;
+    margin-bottom: 0.15rem;
+}
+.techskills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 0.4rem;
+    margin-bottom: 0.3rem;
+}
+.techskill {
+    background: #222;
+    color: #ccc;
+    border-radius: 6px;
+    padding: 0.25rem 0.7rem;
+    font-size: 0.93rem;
+    margin-bottom: 0.2rem;
+    display: inline-block;
+}
+.techskills-note {
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+}
+@media (max-width: 1100px) {
+    .about-edu-skills {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.5rem;
+    }
+    .about-education-box, .about-techskills-box {
+        max-width: 100%;
+        min-width: 0;
+    }
+} 
+
+/* Larger, more prominent bio in About section */
+.about-bio-large {
+    font-size: 1.35rem;
+    line-height: 1.8;
+    margin-bottom: 2.2rem;
+    color: #fff;
+    font-weight: 400;
+    text-align: left;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+} 
+
+/* About Me Intro Box Style */
+.about-intro-box {
+    background: #111111ee;
+    border-radius: 18px;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.18);
+    padding: 1.2rem 1.2rem 1rem 1.2rem;
+    margin-bottom: 1.2rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Unified box for Education & Tech Skills in About section */
+.about-info-box, .about-education-box, .about-techskills-box {
+    background: #111111ee;
+    border-radius: 22px;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.22);
+    border: 1.5px solid var(--secondary);
+    position: relative;
+    overflow: hidden;
+}
+.about-info-box::before, .about-education-box::before, .about-techskills-box::before {
+    content: none;
+}
+.edu-course, .techskill {
+    background: #232323;
+    color: #ff6a1a;
+    border-radius: 6px;
+    padding: 0.25rem 0.7rem;
+    font-size: 0.93rem;
+    margin-bottom: 0.2rem;
+    display: inline-block;
+    border: 1px solid #333;
+    box-shadow: none;
+    transition: background 0.3s, color 0.3s;
+}
+.edu-course.more {
+    background: #444;
+    color: #ccc;
+    border: 1px solid #444;
+}
+.techskill {
+    background: #232323;
+    color: #00fff9;
+    border: 1px solid #222;
+}
+.edu-course:hover, .techskill:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--secondary);
+    box-shadow: none;
+}
+@media (max-width: 950px) {
+    .about-techskills-box {
+        max-width: 98vw;
+        min-width: 0;
+        flex: 1 1 100%;
+    }
+}
