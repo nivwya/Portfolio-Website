@@ -9,17 +9,7 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div id="loading-screen">
-        <div class="loading-container">
-            <div class="loading-logo">NA</div>
-            <div class="loading-text">LOADING</div>
-            <div class="loading-bar">
-                <div class="loading-progress"></div>
-            </div>
-        </div>
-    </div>
-
+    
     <div class="glitch-overlay"></div>
     
     <!-- Fixed Social Links Sidebar -->
@@ -39,9 +29,10 @@
         </div>
         <div class="nav-links">
             <a href="#home">HOME</a>
-            <a href="#projects">PROJECTS</a>
             <a href="#experience">EXPERIENCE</a>
+            <a href="#projects">PROJECTS</a>
             <a href="#skills">SKILLS</a>
+            <a href="#achievements">ACHIEVEMENTS</a>
             <a href="#about">ABOUT</a>
             <a href="#contact">CONTACT</a>
         </div>
@@ -65,6 +56,38 @@
         </div>
     </section>
 
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <h2 class="section-title" data-text="EXPERIENCE/LOG">EXPERIENCE</h2>
+        <p class="experience-subtitle">My professional journey</p>
+        <div class="timeline-horizontal">
+            <div class="timeline-bar">
+                <span class="timeline-year-label left">2024</span>
+                <div class="timeline-progress"></div>
+                <span class="timeline-year-label right">2025</span>
+            </div>
+            <div class="experience-cards">
+                <div class="experience-card active" data-exp="ge">
+                    <div class="exp-header">
+                        <span class="exp-company">Al Mulla Group</span>
+                        <span class="exp-badge">AM</span>
+                    </div>
+                    <div class="exp-role">Software Engineer Intern</div>
+                    <div class="exp-meta">
+                        <span class="exp-date"><i class="fas fa-calendar-alt"></i> Jun. 2025 - Jul. 2025</span>
+                    </div>
+                    <div class="exp-meta">
+                        <span class="exp-location"><i class="fas fa-map-marker-alt"></i> Free Trade Zone, Kuwait</span>
+                    </div>
+                    <div class="exp-desc exp-desc-truncate" data-exp="ge"></div>
+                    <div class="exp-skills exp-skills-truncate" data-exp="ge"></div>
+                </div>
+            </div>
+            <div id="exp-details-panel" class="exp-details-panel" style="display:none;"></div>
+        </div>
+    </section>
+
+
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <h2 class="section-title" data-text="PROJECTS/WORK">PROJECTS/WORK</h2>
@@ -82,12 +105,21 @@
                 </div>
 
                 <div class="project-card truncated">
+                    <div class="project-image"><img src="project3.png" alt="Pluggable AI Agent Server"></div>
+                    <h3>Pluggable AI Agent Server</h3>
+                    <div class="project-description project-description--truncated">A TypeScript backend AI agent with session memory, RAG document retrieval, and plugin system (weather/math) using OpenAI.</div>
+                    <button class="read-more" onclick="this.previousElementSibling.classList.toggle('expanded'); this.style.display='none';">Read more</button>
+                    <div class="project-links">
+                        <a href="https://github.com/nivwya/Pluggable-AI-Agent-Server" class="cyber-button">GITHUB</a>
+                    </div>
+                </div>
+
+                <div class="project-card truncated">
                     <div class="project-image"><img src="project5.png" alt="Foreign Supplier Portal"></div>
                     <h3>Foreign Supplier Portal - Summer Intern</h3>
                     <div class="project-description project-description--truncated">A web-based platform designed for foreign vendors to manage their entire order lifecycle with the companies. The application enables vendors to receive and process orders, track deliveries, manage invoices and payments, and maintain their profiles. Tech Used: PHP, phpmyadmin, mySQL, Laravel, JavaScript, etc</div>
                     <button class="read-more" onclick="this.previousElementSibling.classList.toggle('expanded'); this.style.display='none';">Read more</button>
                     <div class="project-links">
-                        <a href="#" class="cyber-button">LIVE DEMO</a>
                         <a href="https://github.com/nivwya/ForeignSupplierPortal" class="cyber-button">GITHUB</a>
                     </div>
                 </div>
@@ -114,10 +146,11 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card truncated">
                     <div class="project-image"><img src="project4.png" alt="Styles"></div>
                     <h3>Styles</h3>
-                    <div class="project-description">A 90s vintage based project for the people who are confused about their fashion style. It is fully focused on frontend and there is necessary backend for your login credentials.</div>
+                    <div class="project-description project-description--truncated">A 90s vintage based project for the people who are confused about their fashion style. It is fully focused on frontend and there is necessary backend for your login credentials. </div>
+                    <button class="read-more" onclick="this.previousElementSibling.classList.toggle('expanded'); this.style.display='none';">Read more</button>
                     <div class="project-links">
                         <a href="https://knowyourstyle.netlify.app/" class="cyber-button">LIVE DEMO</a>
                         <a href="https://github.com/nivwya/Know_Your_Style" class="cyber-button">GITHUB</a>
@@ -128,25 +161,6 @@
             <div class="custom-scrollbar">
                 <div class="scrollbar-track">
                     <div class="scrollbar-thumb"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <h2 class="section-title" data-text="EXPERIENCE/LOG">EXPERIENCE/LOG</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="date">June 2025 - July 2025</div>
-                <div class="content">
-                    <h3>Software Intern</h3>
-                    <h4>Al Mulla Group, Kuwait City</h4>
-                    <p>•Designed and developed a comprehensive web application for the Foreign Supplier Portal from the ground up, 
-                        delivering a full-featured platform for vendor onboarding, profile management, secure authentication, API integration and reporting.<br>
-                       • Utilized PHP (Laravel) for backend development and MySQL for database design, with dynamic front-end functionality implemented using JavaScript.<br>
-                       • Collaborated closely with the SAP team to integrate enterprise systems and ensure seamless data flow.<br>
-                       •Participated in daily Agile stand-ups and planning sessions to coordinate requirements, prioritize tasks, and drive project progress.</p>
                 </div>
             </div>
         </div>
@@ -195,20 +209,130 @@
         </div>
     </section>
 
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements">
+        <h2 class="section-title" data-text="ACHIEVEMENTS">ACHIEVEMENTS & CERTIFICATIONS</h2>
+        <div class="achievements-container">
+            <div class="achievement-card">
+                <h3>GDSC Design Week 2025</h3>
+                <p>Secured 3rd place in GDSC Design Week 2025 for designing a Figma-based app interface around the theme of innovation.</p>
+                <div class="achievement-meta">
+                    <span class="cert-date">April 2025</span>
+                    <a href="https://throbbing-forest-580.linkyhost.com/" class="cyber-button" target="_blank" rel="noopener noreferrer">View Details</a>
+                </div>
+            </div>
+<!--
+            <div class="achievement-card">
+                <h3>LeetCode 100+ Problems Solved</h3>
+                <p>Achieved a milestone of solving over 100 coding problems on LeetCode, demonstrating strong problem-solving skills.</p>
+                <div class="achievement-meta">
+                    <span class="cert-date">2025</span>
+                    <a href="https://leetcode.com/u/Niveditha_RA/" class="cyber-button" target="_blank" rel="noopener noreferrer">View Details</a>
+                </div>
+            </div>
+-->
+            <div class="achievement-card">
+                <h3>Blockchain Masterclass</h3>
+                <p>Completed the Blockchain Masterclass, gaining hands-on understanding of blockchain fundamentals, smart contracts, and decentralized applications.</p>
+                <div class="achievement-meta">
+                    <span class="cert-date">July 2025</span>
+                    <a href="https://www.credential.net/36487f71-70e6-47f5-8c43-8fecf9a65e4d#acc.gMe2Y1nU" class="cyber-button" target="_blank" rel="noopener noreferrer">View Details</a>
+                </div>
+            </div>
+            <div class="achievement-card">
+                <h3>Introduction to Machine Learning</h3>
+                <p>Completed course by Kaggle, covering core ML concepts like model training, validation, and decision trees.</p>
+                <div class="achievement-meta">
+                    <span class="cert-date">August2025</span>
+                    <a href="https://www.kaggle.com/learn/certification/nivedithaanumandla/intro-to-machine-learning" class="cyber-button" target="_blank" rel="noopener noreferrer">View Details</a>
+                </div>
+            </div>
+            <div class="achievement-card">
+                <h3>Web Wonders Competition 2024</h3>
+                <p>Participated in Web Wonders Competition 2024 held by NEXUS, SVNIT and built a web application on the theme of Indian heritage as a team.</p>
+                <div class="achievement-meta">
+                    <span class="cert-date"> July 2024</span>
+                    <a href="https://certificate.givemycertificate.com/c/9477241c-6758-4903-8bd7-a477d4d79427" class="cyber-button" target="_blank" rel="noopener noreferrer">View Details</a>
+                </div>
+            </div>
+            <div class="achievement-card">
+                <h3>Postman API Fundamentals Student Expert</h3>
+                <p>Completed hands-on challenges covering requests, responses, collections, and core API workflows using Postman.</p>
+                <div class="achievement-meta">
+                    <span class="cert-date">July 2025</span>
+                    <a href="https://badgr.com/public/assertions/12iEnTVSTFypcjDWPkSZEg?identity__email=nivi.anr1707%40gmail.com" class="cyber-button" target="_blank" rel="noopener noreferrer">View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section id="about" class="about">
         <h2 class="section-title" data-text="ABOUT/ME">ABOUT/ME</h2>
-        <div class="about-card-glass about-centered">
-            <div class="about-content-centered">
-                <h3>THIS IS WHO I AM</h3>
-                <p class="bio">Hi, I'm Niveditha. I'm someone who enjoys learning new things, exploring ideas, and building projects that spark curiosity. I like to take on challenges, solve problems, and keep growing along the way. Whether it's working on something creative or technical, I'm always excited to see where it leads.</p>
-                <div class="quick-facts-row">
-                    <div class="quick-fact"><i class="fas fa-laptop-code"></i><span>3+ Years Coding</span></div>
-                    <div class="quick-fact"><i class="fas fa-star"></i><span>Favorite Language: Python</span></div>
-                    <div class="quick-fact"><i class="fas fa-gamepad"></i><span>Hobby: Gaming</span></div>
+        <div class="about-intro">
+            <p class="bio about-bio-large">Hi, I'm Niveditha. I'm someone who enjoys learning new things, exploring ideas, and building projects that spark curiosity. I like to take on challenges, solve problems, and keep growing along the way. Whether it's working on something creative or technical, I'm always excited to see where it leads.</p>
+        </div>
+        <div class="about-edu-skills" style="display: flex; gap: 2.5rem; flex-wrap: wrap; justify-content: center; margin-top: 2.5rem;">
+            <div class="about-education-box about-info-box" style="min-width: 340px; max-width: 500px; flex: 1 1 340px;">
+                <h3 style="color: #fff; margin-bottom: 1.2rem;">Education</h3>
+                <div style="margin-bottom: 1.1rem;">
+                    <span style="color: #ff6a1a; font-size: 1.25rem; font-weight: bold;">B.Tech - Computer Science and Engineering</span><br>
+                    <span style="color: #ccc;">National Institute of Technology, Surat</span>
+                    <span style="float: right; color: #ccc;">2022-Present</span>
                 </div>
-                <div class="about-quote-neon">
-                    <i class="fas fa-quote-left"></i> "Balancing code, rhythm, and waves because creativity doesn't just live in lines of logic." <i class="fas fa-quote-right"></i>
+                <!-- <div style="margin-bottom: 0.7rem; color: #ccc;">CGPA: 6.0</div> -->
+                <div style="margin-top: 1.2rem;">
+                    <span style="font-weight: bold; color: #fff; font-size: 1.07rem;">Key Courses</span>
+                    <div class="edu-courses-list" style="margin-top: 0.5rem;">
+                        <span class="edu-course">Data Structures</span>
+                        <span class="edu-course">Design and Analysis of Algorithms</span>
+                        <span class="edu-course">Machine Learning</span>
+                        <span class="edu-course">Operating Systems</span>
+                        <span class="edu-course">High Performance Computing</span>
+                        <span class="edu-course">Discrete Mathematics</span>
+                        <span class="edu-course">Microprocessor Interfacing Techniques</span>
+                        <span class="edu-course">Database Management Systems</span>
+                        <span class="edu-course more">+6 more</span>
+                    </div>
+                </div>
+            </div>
+            <!--
+            <div class="about-techskills-box about-info-box" style="min-width: 340px; max-width: 500px; flex: 1 1 340px;">
+                <h3 style="color: #fff; margin-bottom: 1.2rem;">Technical Skills</h3>
+                <div class="techskills-section">
+                    <div>
+                        <span class="techskills-title" style="color: #ff6a1a; font-weight: bold;">Computer Languages</span>
+                        <div class="techskills-list">
+                            <span class="techskill">Python</span>
+                            <span class="techskill">C/C++</span>
+                            <span class="techskill">JavaScript</span>
+                            <span class="techskill">TypeScript*</span>
+                            <span class="techskill">HTML5</span>
+                            <span class="techskill">CSS3</span>
+                            <span class="techskill">Assembly Programming</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="techskills-title" style="color: #ff6a1a; font-weight: bold;">Database Technologies</span>
+                        <div class="techskills-list">
+                            <span class="techskill">MongoDB</span>
+                            <span class="techskill">mySQL</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="techskills-title" style="color: #ff6a1a; font-weight: bold;">Frameworks & Tools</span>
+                        <div class="techskills-list">
+                            <span class="techskill">Google Agent Development Kit</span>
+                            <span class="techskill">NextJS</span>
+                            <span class="techskill">ReactJS</span>
+                            <span class="techskill">PyTorch</span>
+                            <span class="techskill">Tailwind CSS</span>
+                            <span class="techskill">Docker</span>
+                            <span class="techskill">GitHub</span>
+                            <span class="techskill">Postman</span>
+                        </div>
+                    </div>
+                -->
                 </div>
             </div>
         </div>
