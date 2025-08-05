@@ -1,18 +1,3 @@
-// Loading Screen Management
-document.addEventListener('DOMContentLoaded', function() {
-    const loadingScreen = document.getElementById('loading-screen');
-    
-    // Hide loading screen after a short delay to ensure smooth transition
-    setTimeout(() => {
-        if (loadingScreen) {
-            loadingScreen.classList.add('fade-out');
-            setTimeout(() => {
-                loadingScreen.style.display = 'none';
-            }, 800);
-        }
-    }, 1000); // Show loading screen for 2 seconds
-});
-
 // Enhanced slow animations for home page elements
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all elements with opacity 0 and transform
@@ -394,5 +379,122 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Expand/collapse experience timeline details
+    function toggleExperienceDetails(item) {
+        // Collapse all others
+        document.querySelectorAll('.timeline-item.expandable').forEach(el => {
+            if (el !== item) el.classList.remove('expanded');
+        });
+        // Toggle this one
+        item.classList.toggle('expanded');
+    }
 
-}); 
+    // Experience details data
+    const experienceDetails = {
+        ge: {
+            role: 'Software Engineer Intern',
+            company: 'Al Mulla Group',
+            dates: 'Jun. 2025 - Jul. 2025',
+            location: 'Free Trade Zone, Kuwait',
+            achievements: [
+                'Built a full-featured Supplier Portal for vendor onboarding, authentication, reporting, and profile management.',
+                'Used Laravel (PHP), MySQL, and JavaScript for backend, database, and dynamic frontend development.',
+                'Integrated with SAP systems to ensure seamless enterprise data flow.',
+                'Took part in daily stand-ups and planning sessions to stay aligned with the team and keep the project moving forward.'
+            ],
+            tech: ['PHP', 'MySQL', 'Laravel', 'HTML5', 'CSS', 'JavaScript', 'Git', 'SAP'],
+            quote: '"Designed and developed a full-featured Supplier Portal from scratch, integrating Laravel, MySQL, JavaScript, and SAP systems to streamline vendor operations.',
+            cert: { url: 'https://internshipcert.linkyhost.com/', label: 'Certification' }
+        },
+    };
+
+    function renderExperienceDetails(key) {
+        const data = experienceDetails[key];
+        if (!data) return '';
+        return `
+            <div class="exp-details-box">
+                <div class="exp-details-left">
+                    <div class="exp-details-header">
+                        <div class="exp-details-role">${data.role}</div>
+                        <div class="exp-details-company">${data.company}</div>
+                        <div class="exp-details-meta">
+                            <span><i class='fas fa-calendar-alt'></i> ${data.dates}</span>
+                            <span><i class='fas fa-map-marker-alt'></i> ${data.location}</span>
+                        </div>
+                    </div>
+                    <div class="exp-details-section">
+                        <h4>Key Achievements</h4>
+                        <ul class="exp-details-achievements">
+                            ${data.achievements.map(a => `<li>${a}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+                <div class="exp-details-right">
+                    <span class="exp-tech-heading">💻 Technologies Used</span>
+                    <div class="exp-details-techbox">
+                        <div class="exp-details-tech">
+                            ${data.tech.map(t => `<span>${t}</span>`).join('')}
+                        </div>
+                    </div>
+                    ${data.cert ? `<div class="exp-details-section exp-details-cert"><a href="${data.cert.url}" target="_blank" class="exp-cert-link"><i class="fas fa-certificate"></i> ${data.cert.label}</a></div>` : ''}
+                </div>
+            </div>
+        `;
+    }
+
+    // Fill truncated description and skills in experience cards
+    function fillExperienceCardSummaries() {
+        const expData = experienceDetails;
+        document.querySelectorAll('.exp-desc-truncate').forEach(descEl => {
+            const key = descEl.getAttribute('data-exp');
+            if (expData[key]) {
+                let text = expData[key].quote || '';
+                descEl.textContent = text;
+            }
+        });
+        document.querySelectorAll('.exp-skills-truncate').forEach(skillsEl => {
+            const key = skillsEl.getAttribute('data-exp');
+            if (expData[key]) {
+                skillsEl.innerHTML = '';
+                const skills = expData[key].tech;
+                let shown = skills.slice(0, 4);
+                shown.forEach(skill => {
+                    const span = document.createElement('span');
+                    span.textContent = skill;
+                    skillsEl.appendChild(span);
+                });
+                if (skills.length > 4) {
+                    const more = document.createElement('span');
+                    more.className = 'exp-skill-more';
+                    more.textContent = `+view more`;
+                    skillsEl.appendChild(more);
+                }
+            }
+        });
+    }
+
+    // Show dropdown details for experience cards
+    function setupExperienceDropdown() {
+        const expCards = document.querySelectorAll('.experience-card');
+        const expDetailsPanel = document.getElementById('exp-details-panel');
+        expCards.forEach(card => {
+            card.addEventListener('click', function() {
+                expCards.forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+                const key = this.getAttribute('data-exp');
+                expDetailsPanel.innerHTML = renderExperienceDetails(key);
+                expDetailsPanel.style.display = 'block';
+                expDetailsPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+        // Show first by default
+        const firstKey = expCards[0]?.getAttribute('data-exp');
+        if (firstKey) {
+            expDetailsPanel.innerHTML = renderExperienceDetails(firstKey);
+            expDetailsPanel.style.display = 'block';
+        }
+    }
+
+    fillExperienceCardSummaries();
+    setupExperienceDropdown();
+});
