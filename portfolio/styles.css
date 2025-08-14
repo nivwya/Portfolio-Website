@@ -2035,6 +2035,7 @@ textarea:valid + label {
     gap: 1rem;
 }
 .achievement-meta .cert-date {
+    color:#fff;
     margin: 0;
 }
 .achievement-meta .cyber-button {
@@ -2205,7 +2206,7 @@ textarea:valid + label {
 }
 .edu-course, .techskill {
     background: #232323;
-    color: #ff6a1a;
+    color: #fff;
     border-radius: 6px;
     padding: 0.25rem 0.7rem;
     font-size: 0.93rem;
